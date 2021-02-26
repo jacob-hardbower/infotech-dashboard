@@ -1,13 +1,39 @@
 "use strict"
 
-const createSalespersonTable = (salespeople) => {
-	var table = document.createDocumentFragment()
-	salespeople.forEach(createSalespersonRow)
+const populateSalespersonTable = (salespeople, sort, desc) => {
+
+	const tableFragment = document.createDocumentFragment()
+
+	getSalespeople[sort](salespeople, desc).forEach((salesperson) => {
+		tableFragment.appendChild(createSalespersonRow(salesperson))
+	})
+
+	document.getElementById("salesperson-table").children[0].appendChild(tableFragment)
 }
 
-const createSalespersonRow = (salesperson) => {
-	console.log(salesperson.name);
+const getSalespeople = {
+	byDeals: (salespeople, desc = true) => {
+		return salespeople.sort((personOne, personTwo) => {
+			var d1 = personOne.dealsClosed
+	    var d2 = personTwo.dealsClosed
+			if (desc)
+				return (d2 < d1) ? -1 : (d2 > d1) ? 1 : 0
+			else
+				return (d1 < d2) ? -1 : (d1 > d2) ? 1 : 0
+		})
+	},
+	byName: (salespeople, desc = false) => {
+		return salespeople.sort((personOne, personTwo) => {
+			var n1 = personOne.name.toLowerCase()
+	    var n2 = personTwo.name.toLowerCase()
+			if (desc)
+				return (n2 < n1) ? -1 : (n2 > n1) ? 1 : 0
+			else
+				return (n1 < n2) ? -1 : (n1 > n2) ? 1 : 0
+		})
+	}
 }
+
 const createSalespersonRow = (salesperson) => {
 	let row = document.createElement("tr")
 	let columnOne = document.createElement("td")

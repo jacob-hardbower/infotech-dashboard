@@ -1,4 +1,4 @@
 "use strict"
 
 const salespeople = getSalesPeople()
-createSalespersonTable(salespeople)
+populateSalespersonTable(salespeople, 'byName', true)
