@@ -38,37 +38,6 @@ const populateFeed = (salespeople) => {
 }
 
 /**
- * Factory for feed list item elements
- *
- * @param {array} salespeople Array containing salesperson objects
- * @return {object} document fragment containing list items for feed
- */
-const createFeed = salespeople => {
-	const listFragment = document.createDocumentFragment()
-	salespeople.forEach(salesperson => {
-		let row = document.createElement("li")
-		let image = document.createElement("img")
-		image.setAttribute("src", salesperson.photo)
-
-		let name = document.createElement("h3")
-		name.appendChild(document.createTextNode(salesperson.name))
-		name.classList.add("salesperson-name")
-
-		let message = document.createElement("p")
-		message.appendChild(document.createTextNode(`${salesperson.message}`))
-		message.classList.add("sales-message")
-
-		row.appendChild(image)
-		row.appendChild(name)
-		row.appendChild(message)
-
-		listFragment.appendChild(row)
-	})
-
-	return listFragment
-}
-
-/**
  * Clears existing lists of salespeople
  * Could be improved, as this requires img requests be made again.
  *
@@ -134,7 +103,7 @@ const getSalespeople = {
 }
 
 /**
- * Factory for list item elements
+ * Factory for salesperson list item elements
  *
  * @param {object} salesperson Object containing details of a salesperson
  * @return {object} li element containing the html to display a salesperson
@@ -175,4 +144,35 @@ const createSalespersonRow = (salesperson) => {
 	row.appendChild(links)
 
 	return row
+}
+
+/**
+ * Factory for feed list item elements
+ *
+ * @param {array} salespeople Array containing salesperson objects
+ * @return {object} document fragment containing list items for feed
+ */
+const createFeed = salespeople => {
+	const listFragment = document.createDocumentFragment()
+	salespeople.forEach(salesperson => {
+		let row = document.createElement("li")
+		let image = document.createElement("img")
+		image.setAttribute("src", salesperson.photo)
+
+		let name = document.createElement("h3")
+		name.appendChild(document.createTextNode(salesperson.name))
+		name.classList.add("salesperson-name")
+
+		let message = document.createElement("p")
+		message.appendChild(document.createTextNode(`${salesperson.message}`))
+		message.classList.add("sales-message")
+
+		row.appendChild(image)
+		row.appendChild(name)
+		row.appendChild(message)
+
+		listFragment.appendChild(row)
+	})
+
+	return listFragment
 }
