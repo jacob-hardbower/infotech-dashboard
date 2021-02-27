@@ -1,4 +1,5 @@
 "use strict"
 
 const salespeople = getSalesPeople()
-populateSalespersonTable(salespeople, 'byName', true)
+populateLeaderboard(salespeople, 'byDeals', false)
+populateSalespersonList(salespeople, 'byName', true)

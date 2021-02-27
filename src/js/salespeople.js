@@ -1,24 +1,46 @@
 "use strict"
 
-const populateSalespersonTable = (salespeople, sort, desc) => {
-	const tableBody = document.getElementById("salesperson-table-body")
-	const tableFragment = document.createDocumentFragment()
+const populateLeaderboard = () => {
 
-	// If a table exists, delete it, so it can be recreated.
+}
+
+/**
+ * Creates and populates a list with salespeople
+ *
+ * @param {array} salespeople Array containing salesperson objects
+ * @param {string} sort Method for which to sort the salespeople
+ * @param {bool} desc Whether the sort method should be done in descending order
+ */
+const populateSalespersonList = (salespeople, sort, desc) => {
+	const list = document.getElementById("primary-salesperson-list")
+	const listFragment = document.createDocumentFragment()
+
+	// If a list exists, delete it, so it can be recreated.
 	// Could be improved, as it requires img requests be made again.
-	if(tableBody.children[0] !== undefined) {
-		while (tableBody.firstChild) {
-	    tableBody.removeChild(tableBody.lastChild);
+	if(list.children[0] !== undefined) {
+		while (list.firstChild) {
+	    list.removeChild(list.lastChild);
 	  }
 	}
 
-	getSalespeople[sort](salespeople, desc).forEach((salesperson) => {
-		tableFragment.appendChild(createSalespersonRow(salesperson))
+	// Use sort string to access desired sorting method of getSalesPeople object.
+	// Pass copy of salespeople with listing order to sorting function.
+	getSalespeople[sort](salespeople.concat(), desc).forEach((salesperson) => {
+		// Append the created row html of each salesperson to the list.
+		listFragment.appendChild(createSalespersonRow(salesperson))
 	})
 
-	tableBody.appendChild(tableFragment)
+	list.appendChild(listFragment)
 }
 
+/**
+ * Interface for sorting methods
+ * The functions within return sorted salespeople arrays
+ *
+ * @param {array} salespeople Array containing salesperson objects
+ * @param {bool} desc Whether the sort method should be done in descending order
+ * @return {array} sorted salespeople array
+ */
 const getSalespeople = {
 	byDeals: (salespeople, desc = true) => {
 		return salespeople.sort((personOne, personTwo) => {
@@ -42,11 +64,14 @@ const getSalespeople = {
 	}
 }
 
+/**
+ * Factory for list item elements
+ *
+ * @param {object} salesperson Object containing details of a salesperson
+ * @return {object} tr element containing the html to display a salesperson
+ */
 const createSalespersonRow = (salesperson) => {
-	let row = document.createElement("tr")
-	let columnOne = document.createElement("td")
-	let columnTwo = document.createElement("td")
-	let columnThree = document.createElement("td")
+	let row = document.createElement("li")
 
 	let image = document.createElement("img")
 	image.setAttribute("src", salesperson.photo)
@@ -69,15 +94,16 @@ const createSalespersonRow = (salesperson) => {
 	messageLink.setAttribute("title", `Message ${salesperson.name}`)
 	messageLink.appendChild(document.createTextNode("Message"))
 
-	columnOne.appendChild(image)
-	columnOne.appendChild(name)
-	columnTwo.appendChild(deals)
-	columnThree.appendChild(profileLink)
-	columnThree.appendChild(messageLink)
+	let links = document.createElement("div")
+	links.classList.add("links-section")
 
-	row.appendChild(columnOne)
-	row.appendChild(columnTwo)
-	row.appendChild(columnThree)
+	links.appendChild(profileLink)
+	links.appendChild(messageLink)
+
+	row.appendChild(image)
+	row.appendChild(name)
+	row.appendChild(deals)
+	row.appendChild(links)
 
 	return row
 }
