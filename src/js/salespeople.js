@@ -1,14 +1,22 @@
 "use strict"
 
 const populateSalespersonTable = (salespeople, sort, desc) => {
-
+	const tableBody = document.getElementById("salesperson-table-body")
 	const tableFragment = document.createDocumentFragment()
+
+	// If a table exists, delete it, so it can be recreated.
+	// Could be improved, as it requires img requests be made again.
+	if(tableBody.children[0] !== undefined) {
+		while (tableBody.firstChild) {
+	    tableBody.removeChild(tableBody.lastChild);
+	  }
+	}
 
 	getSalespeople[sort](salespeople, desc).forEach((salesperson) => {
 		tableFragment.appendChild(createSalespersonRow(salesperson))
 	})
 
-	document.getElementById("salesperson-table").children[0].appendChild(tableFragment)
+	tableBody.appendChild(tableFragment)
 }
 
 const getSalespeople = {
