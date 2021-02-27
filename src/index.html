@@ -14,11 +14,14 @@
 
       <section>
         <h2>Leaderboard</h2>
-        <select>
-          <option value="today">Today</option>
-          <option value="today">This week</option>
-          <option value="today">This Month</option>
-        </select>
+        <div class="leaderboard-controls">
+          <input checked type="radio" id="past-day" name="leaderboard" value="day">
+          <label for="past-day">Day</label>
+          <input type="radio" id="past-week" name="leaderboard" value="week">
+          <label for="past-week">Week</label>
+          <input type="radio" id="past-month" name="leaderboard" value="month">
+          <label for="past-month">Month</label>
+        </div>
         <ol id="leaderboard"></ol>
       </section>
 
