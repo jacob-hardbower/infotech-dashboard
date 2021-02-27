@@ -1,7 +1,9 @@
 "use strict"
 
-const populateLeaderboard = () => {
-
+const populateLeaderboard = (salespeople) => {
+	const list = document.getElementById("leaderboard")
+	clearPopulatedList(list)
+	list.appendChild(createList(salespeople, 'byDeals', false))
 }
 
 /**
@@ -11,26 +13,39 @@ const populateLeaderboard = () => {
  * @param {string} sort Method for which to sort the salespeople
  * @param {bool} desc Whether the sort method should be done in descending order
  */
-const populateSalespersonList = (salespeople, sort, desc) => {
+const populateSalespersonList = (salespeople, sort = "byName", desc = true) => {
 	const list = document.getElementById("primary-salesperson-list")
-	const listFragment = document.createDocumentFragment()
+	clearPopulatedList(list)
+	list.appendChild(createList(salespeople, sort, desc))
+}
 
-	// If a list exists, delete it, so it can be recreated.
-	// Could be improved, as it requires img requests be made again.
+// If a list exists, delete it, so it can be recreated.
+// Could be improved, as this requires img requests be made again.
+const clearPopulatedList = list => {
 	if(list.children[0] !== undefined) {
 		while (list.firstChild) {
-	    list.removeChild(list.lastChild);
-	  }
+			list.removeChild(list.lastChild);
+		}
 	}
+}
 
+/**
+ * Creates and populates a document fragment with salespeople
+ *
+ * @param {array} salespeople Array containing salesperson objects
+ * @param {string} sort Method for which to sort the salespeople
+ * @param {bool} desc Whether the sort method should be done in descending order
+ * @return {obj} document fragment with salespeople
+ */
+const createList = (salespeople, sort, desc) => {
+	const listFragment = document.createDocumentFragment()
 	// Use sort string to access desired sorting method of getSalesPeople object.
 	// Pass copy of salespeople with listing order to sorting function.
 	getSalespeople[sort](salespeople.concat(), desc).forEach((salesperson) => {
 		// Append the created row html of each salesperson to the list.
 		listFragment.appendChild(createSalespersonRow(salesperson))
 	})
-
-	list.appendChild(listFragment)
+	return listFragment
 }
 
 /**

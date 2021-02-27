@@ -1,5 +1,6 @@
 "use strict"
 
 const salespeople = getSalesPeople()
-populateLeaderboard(salespeople, 'byDeals', false)
-populateSalespersonList(salespeople, 'byName', true)
+// Initial population
+populateLeaderboard(salespeople)
+populateSalespersonList(salespeople)
