@@ -8,7 +8,8 @@
 const populateLeaderboard = (salespeople) => {
 	const list = document.getElementById("leaderboard")
 	clearPopulatedList(list)
-	list.appendChild(createList(salespeople, 'byDeals', false, 3))
+	const leaders = getLeaders(salespeople)
+	list.appendChild(createList(leaders, 'byDeals', true))
 }
 
 /**
@@ -52,11 +53,31 @@ const clearPopulatedList = list => {
 }
 
 /**
+ * Returns array of salespeople based on performance
+ *
+ * @param {array} salespeople Array containing salesperson objects
+ * @param {string} period Time period of performance
+ * @return {array} Top performing salespeople for given period
+ */
+const getLeaders = (salespeople, period = "day") => {
+	// No default used because it's defined as 'day' above
+	switch (period) {
+		case "day":
+			return salespeople.filter(person => person.topPerformer.day === true)
+		case "week":
+			return salespeople.filter(person => person.topPerformer.week === true)
+		case "month":
+			return salespeople.filter(person => person.topPerformer.month === true)
+	}
+}
+
+/**
  * Creates and populates a document fragment with salespeople
  *
  * @param {array} salespeople Array containing salesperson objects
  * @param {string} sort Method for which to sort the salespeople
  * @param {bool} desc Whether the sort method should be done in descending order
+ * @param {int} length How long the returned list should be
  * @return {obj} document fragment with salespeople
  */
 const createList = (salespeople, sort, desc, length = null) => {
