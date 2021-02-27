@@ -8,7 +8,7 @@
 const populateLeaderboard = (salespeople) => {
 	const list = document.getElementById("leaderboard")
 	clearPopulatedList(list)
-	const leaders = getLeaders(salespeople)
+	const leaders = getLeaders(salespeople, "day")
 	list.appendChild(createList(leaders, 'byDeals', true))
 }
 
@@ -59,8 +59,7 @@ const clearPopulatedList = list => {
  * @param {string} period Time period of performance
  * @return {array} Top performing salespeople for given period
  */
-const getLeaders = (salespeople, period = "day") => {
-	// No default used because it's defined as 'day' above
+const getLeaders = (salespeople, period) => {
 	switch (period) {
 		case "day":
 			return salespeople.filter(person => person.topPerformer.day === true)
@@ -68,7 +67,26 @@ const getLeaders = (salespeople, period = "day") => {
 			return salespeople.filter(person => person.topPerformer.week === true)
 		case "month":
 			return salespeople.filter(person => person.topPerformer.month === true)
+		default: {
+			return salespeople.filter(person => {
+				return isTopPerformer(person)
+			})
+		}
 	}
+}
+
+/**
+ * Determines if person is top performer in any time period
+ *
+ * @param {object} person Object containing person's data
+ * @return {bool} true if person is top performer in any time period
+ */
+const isTopPerformer = person => {
+	return (
+		person.topPerformer.day === true ||
+		person.topPerformer.week === true ||
+		person.topPerformer.month === true
+	)
 }
 
 /**
@@ -86,6 +104,7 @@ const createList = (salespeople, sort, desc, length = null) => {
 	// Pass copy of salespeople with listing order to sorting function.
 	const sortedList = getSalespeople[sort](salespeople.concat(), desc)
 	const limit = length ? length : sortedList.length
+
 	for(let i = 0; i < limit; i++) {
 		listFragment.appendChild(createSalespersonRow(sortedList[i]))
 	}
@@ -129,32 +148,32 @@ const getSalespeople = {
  * @param {object} salesperson Object containing details of a salesperson
  * @return {object} li element containing the html to display a salesperson
  */
-const createSalespersonRow = (salesperson) => {
-	let row = document.createElement("li")
+const createSalespersonRow = (salesperson, topPerformer = false) => {
+	const row = document.createElement("li")
 
-	let image = document.createElement("img")
+	const image = document.createElement("img")
 	image.setAttribute("alt", `Headshot photo of ${salesperson.name}`)
 	image.setAttribute("src", salesperson.photo)
 
-	let name = document.createElement("h3")
+	const name = document.createElement("h3")
 	name.appendChild(document.createTextNode(salesperson.name))
 	name.classList.add("salesperson-name")
 
-	let deals = document.createElement("p")
+	const deals = document.createElement("p")
 	deals.appendChild(document.createTextNode(`${salesperson.dealsClosed} closed deals`))
 	deals.classList.add("closed-deals")
 
-	let profileLink = document.createElement("a")
+	const profileLink = document.createElement("a")
 	profileLink.setAttribute("href", `/salespeople/${salesperson.id}`)
 	profileLink.setAttribute("title", `View profile of ${salesperson.name}`)
 	profileLink.appendChild(document.createTextNode("View profile"))
 
-	let messageLink = document.createElement("a")
+	const messageLink = document.createElement("a")
 	messageLink.setAttribute("href", `/message/user/${salesperson.id}`)
 	messageLink.setAttribute("title", `Message ${salesperson.name}`)
 	messageLink.appendChild(document.createTextNode("Message"))
 
-	let links = document.createElement("div")
+	const links = document.createElement("div")
 	links.classList.add("links-section")
 
 	links.appendChild(profileLink)
@@ -164,6 +183,13 @@ const createSalespersonRow = (salesperson) => {
 	row.appendChild(name)
 	row.appendChild(deals)
 	row.appendChild(links)
+
+	if(isTopPerformer(salesperson)) {
+		const topPerformer = document.createElement("p")
+		topPerformer.classList.add("top-performer-tag")
+		topPerformer.appendChild(document.createTextNode("Top Performer"))
+		row.appendChild(topPerformer)
+	}
 
 	return row
 }
@@ -177,17 +203,17 @@ const createSalespersonRow = (salesperson) => {
 const createFeed = salespeople => {
 	const listFragment = document.createDocumentFragment()
 	salespeople.forEach(salesperson => {
-		let row = document.createElement("li")
+		const row = document.createElement("li")
 
-		let image = document.createElement("img")
+		const image = document.createElement("img")
 		image.setAttribute("alt", `Headshot photo of ${salesperson.name}`)
 		image.setAttribute("src", salesperson.photo)
 
-		let name = document.createElement("h3")
+		const name = document.createElement("h3")
 		name.appendChild(document.createTextNode(salesperson.name))
 		name.classList.add("salesperson-name")
 
-		let message = document.createElement("p")
+		const message = document.createElement("p")
 		message.appendChild(document.createTextNode(`${salesperson.message}`))
 		message.classList.add("sales-message")
 
