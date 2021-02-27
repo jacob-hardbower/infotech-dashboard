@@ -6,6 +6,7 @@ const feed = getFeed()
 populateLeaderboard(salespeople)
 populateSalespersonList(salespeople)
 populateFeed(feed)
+populateStats(salespeople)
 
 // Attach radio buttons to sorting/filtering
 registerListingRadios(salespeople)
