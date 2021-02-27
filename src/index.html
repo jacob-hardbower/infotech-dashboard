@@ -9,23 +9,37 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <main>
-      <header>
-        Header
-      </header>
 
-      <section>
-        <h2>Leaderboard</h2>
-        <div class="leaderboard-controls">
-          <input checked type="radio" id="past-day" name="period" value="day">
-          <label for="past-day">Day</label>
-          <input type="radio" id="past-week" name="period" value="week">
-          <label for="past-week">Week</label>
-          <input type="radio" id="past-month" name="period" value="month">
-          <label for="past-month">Month</label>
-        </div>
-        <ol id="leaderboard"></ol>
-      </section>
+    <header>
+      <h1>Glengarry Glen Ross Inc.</h1>
+      <p class="tagline"><em>"Always. Be. Closing"</em></p>
+    </header>
+
+    <main>
+
+      <div class="left-sidebar">
+
+        <section>
+          <h2>Leaderboard</h2>
+          <div class="leaderboard-controls">
+            <input checked type="radio" id="past-day" name="period" value="day">
+            <label for="past-day">Day</label>
+            <input type="radio" id="past-week" name="period" value="week">
+            <label for="past-week">Week</label>
+            <input type="radio" id="past-month" name="period" value="month">
+            <label for="past-month">Month</label>
+          </div>
+          <ol class="leaderboard-list" id="leaderboard"></ol>
+        </section>
+
+        <section>
+          <h2>Feed</h2>
+          <p>Remember: Always be closing</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <ul class="feed" id="feed"></ul>
+        </section>
+
+      </div>
 
       <section>
         <h2>Sales Team</h2>
@@ -39,32 +53,16 @@
           <input type="radio" id="desc-order" name="order" value="desc">
           <label for="desc-order">Descending</label><br>
         </div>
-        <ol id="primary-salesperson-list"></ol>
+        <ol class="salesperson-list" id="primary-salesperson-list"></ol>
       </section>
 
-      <aside>
-        <h2>Overview</h2>
-        <ul>
-          <li>
-            <strong>Closed Deals</strong> <br>
-            <span class="stat">345</span>
-          </li>
-          <li>
-            <strong>Current Value</strong> <br>
-            <span class="stat">$100,345</span>
-          </li>
-        </ul>
-        <h2>Feed</h2>
-        <p>Remember: Always be closing</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        <ul id="feed"></ul>
-      </aside>
-
     </main>
+
 		<script src="./data/salespeople.js"></script>
     <script src="./data/feed.js"></script>
 		<script src="./js/salespeople.js"></script>
     <script src="./js/radios.js"></script>
+    <script src="./js/statistics.js"></script>
 		<script src="./js/main.js"></script>
   </body>
 </html>
