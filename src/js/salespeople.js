@@ -18,7 +18,7 @@ const populateLeaderboard = (salespeople) => {
  * @param {string} sort Method for which to sort the salespeople
  * @param {bool} desc Whether the sort method should be done in descending order
  */
-const populateSalespersonList = (salespeople, sort = "byName", desc = true) => {
+const populateSalespersonList = (salespeople, sort = "byName", desc = false) => {
 	const list = document.getElementById("primary-salesperson-list")
 	clearPopulatedList(list)
 	list.appendChild(createList(salespeople, sort, desc))

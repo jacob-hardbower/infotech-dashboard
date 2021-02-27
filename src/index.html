@@ -24,6 +24,16 @@
 
       <section>
         <h2>Sales Team</h2>
+        <div class="list-controls">
+          <input checked type="radio" id="sort-by-name" name="sort" value="byName">
+          <label for="sort-by-name">Name</label><br>
+          <input type="radio" id="sort-by-deals" name="sort" value="byDeals">
+          <label for="sort-by-deals">Deals</label><br>
+          <input checked type="radio" id="asc-order" name="order" value="asc">
+          <label for="asc-order">Ascending</label><br>
+          <input type="radio" id="desc-order" name="order" value="desc">
+          <label for="desc-order">Descending</label><br>
+        </div>
         <ol id="primary-salesperson-list"></ol>
       </section>
 
@@ -49,6 +59,7 @@
 		<script src="./data/salespeople.js"></script>
     <script src="./data/feed.js"></script>
 		<script src="./js/salespeople.js"></script>
+    <script src="./js/order.js"></script>
 		<script src="./js/main.js"></script>
   </body>
 </html>

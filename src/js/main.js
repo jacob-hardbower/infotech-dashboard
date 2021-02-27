@@ -6,3 +6,5 @@ const feed = getFeed()
 populateLeaderboard(salespeople)
 populateSalespersonList(salespeople)
 populateFeed(feed)
+
+registerRadios(salespeople)
