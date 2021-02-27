@@ -1,13 +1,18 @@
 "use strict"
 
+/**
+ * Creates and populates the leaderboard
+ *
+ * @param {array} salespeople Array containing salesperson objects
+ */
 const populateLeaderboard = (salespeople) => {
 	const list = document.getElementById("leaderboard")
 	clearPopulatedList(list)
-	list.appendChild(createList(salespeople, 'byDeals', false))
+	list.appendChild(createList(salespeople, 'byDeals', false, 3))
 }
 
 /**
- * Creates and populates a list with salespeople
+ * Creates and populates the main list of salespeople
  *
  * @param {array} salespeople Array containing salesperson objects
  * @param {string} sort Method for which to sort the salespeople
@@ -19,8 +24,12 @@ const populateSalespersonList = (salespeople, sort = "byName", desc = true) => {
 	list.appendChild(createList(salespeople, sort, desc))
 }
 
-// If a list exists, delete it, so it can be recreated.
-// Could be improved, as this requires img requests be made again.
+/**
+ * Clears existing lists of salespeople
+ * Could be improved, as this requires img requests be made again.
+ *
+ * @param {obj} list <ol> element to be emptied
+ */
 const clearPopulatedList = list => {
 	if(list.children[0] !== undefined) {
 		while (list.firstChild) {
@@ -37,14 +46,15 @@ const clearPopulatedList = list => {
  * @param {bool} desc Whether the sort method should be done in descending order
  * @return {obj} document fragment with salespeople
  */
-const createList = (salespeople, sort, desc) => {
+const createList = (salespeople, sort, desc, length = null) => {
 	const listFragment = document.createDocumentFragment()
 	// Use sort string to access desired sorting method of getSalesPeople object.
 	// Pass copy of salespeople with listing order to sorting function.
-	getSalespeople[sort](salespeople.concat(), desc).forEach((salesperson) => {
-		// Append the created row html of each salesperson to the list.
-		listFragment.appendChild(createSalespersonRow(salesperson))
-	})
+	const sortedList = getSalespeople[sort](salespeople.concat(), desc)
+	const limit = length ? length : sortedList.length
+	for(let i = 0; i < limit; i++) {
+		listFragment.appendChild(createSalespersonRow(sortedList[i]))
+	}
 	return listFragment
 }
 
