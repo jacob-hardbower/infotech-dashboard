@@ -1,5 +1,10 @@
 "use strict"
 
+/**
+ * Creates radio buttons and handlers for ordering salespeople
+ *
+ * @param {array} salespeople Array containing salesperson objects
+ */
 const registerRadios = salespeople => {
 	const sortRadios = document.getElementsByName('sort')
 	const orderRadios = document.getElementsByName('order')
@@ -7,9 +12,7 @@ const registerRadios = salespeople => {
 	let sort = "byName"
 	let desc = false
 
-	const repopulate = () => {
-		populateSalespersonList(salespeople, sort, desc)
-	}
+	const repopulate = () => populateSalespersonList(salespeople, sort, desc)
 
 	for(let i = 0; i < sortRadios.length; i++) {
 	  sortRadios[i].onclick = () => {
@@ -17,6 +20,7 @@ const registerRadios = salespeople => {
 			repopulate()
 		}
 	}
+
 	for(let i = 0; i < orderRadios.length; i++) {
 	  orderRadios[i].onclick = () => {
 			desc = orderRadios[i].value === "desc" ? true : false
