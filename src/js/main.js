@@ -1,11 +1,12 @@
 "use strict"
 
+// Get data and populate the page
 const salespeople = getSalesPeople()
 const feed = getFeed()
-// Initial population
 populateLeaderboard(salespeople)
 populateSalespersonList(salespeople)
 populateFeed(feed)
 
+// Attach radio buttons to sorting/filtering
 registerListingRadios(salespeople)
 registerPeriodRadios(salespeople)
