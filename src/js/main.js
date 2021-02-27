@@ -5,3 +5,4 @@ const feed = getFeed()
 // Initial population
 populateLeaderboard(salespeople)
 populateSalespersonList(salespeople)
+populateFeed(feed)
