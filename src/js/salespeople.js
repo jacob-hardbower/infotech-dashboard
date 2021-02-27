@@ -112,6 +112,7 @@ const createSalespersonRow = (salesperson) => {
 	let row = document.createElement("li")
 
 	let image = document.createElement("img")
+	image.setAttribute("alt", `Headshot photo of ${salesperson.name}`)
 	image.setAttribute("src", salesperson.photo)
 
 	let name = document.createElement("h3")
@@ -156,7 +157,9 @@ const createFeed = salespeople => {
 	const listFragment = document.createDocumentFragment()
 	salespeople.forEach(salesperson => {
 		let row = document.createElement("li")
+
 		let image = document.createElement("img")
+		image.setAttribute("alt", `Headshot photo of ${salesperson.name}`)
 		image.setAttribute("src", salesperson.photo)
 
 		let name = document.createElement("h3")
