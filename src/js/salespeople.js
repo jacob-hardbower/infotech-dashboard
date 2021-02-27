@@ -5,10 +5,10 @@
  *
  * @param {array} salespeople Array containing salesperson objects
  */
-const populateLeaderboard = (salespeople) => {
+const populateLeaderboard = (salespeople, period = "day") => {
 	const list = document.getElementById("leaderboard")
 	clearPopulatedList(list)
-	const leaders = getLeaders(salespeople, "day")
+	const leaders = getLeaders(salespeople, period)
 	list.appendChild(createList(leaders, 'byDeals', true))
 }
 

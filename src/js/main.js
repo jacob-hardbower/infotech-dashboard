@@ -8,3 +8,4 @@ populateSalespersonList(salespeople)
 populateFeed(feed)
 
 registerRadios(salespeople)
+registerPeriodRadios(salespeople)
