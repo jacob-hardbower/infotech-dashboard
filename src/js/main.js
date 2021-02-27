@@ -7,5 +7,5 @@ populateLeaderboard(salespeople)
 populateSalespersonList(salespeople)
 populateFeed(feed)
 
-registerRadios(salespeople)
+registerListingRadios(salespeople)
 registerPeriodRadios(salespeople)

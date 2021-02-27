@@ -5,7 +5,7 @@
  *
  * @param {array} salespeople Array containing salesperson objects
  */
-const registerRadios = salespeople => {
+const registerListingRadios = salespeople => {
 	const sortRadios = document.getElementsByName('sort')
 	const orderRadios = document.getElementsByName('order')
 
