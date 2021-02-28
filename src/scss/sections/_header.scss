@@ -10,9 +10,9 @@
 
 	.tagline {
 		font-style: italic;
-		font-size: .8em;
+		font-size: .8rem;
 		opacity: .8;
-		letter-spacing: .02em;
+		letter-spacing: .02rem;
 		font-weight: 500;
 	}
 
@@ -22,7 +22,7 @@
 		padding: 10px 15px;
 		border: $border-slim-width solid $gray-lightest;
 		font-size: .7rem;
-		line-height: 1em;
+		line-height: 1rem;
 		&:first-child {
 			margin-right: 20px;
 			margin-bottom: 10px;
