@@ -160,8 +160,11 @@ const createSalespersonRow = (salesperson, topPerformer = false) => {
 	name.classList.add("salesperson-name")
 
 	const deals = document.createElement("p")
-	deals.appendChild(document.createTextNode(`${salesperson.dealsClosed} closed deals`))
+	deals.appendChild(document.createTextNode(salesperson.dealsClosed))
 	deals.classList.add("closed-deals")
+
+	const dealSpan = deals.appendChild(document.createElement("span"))
+	dealSpan.appendChild(document.createTextNode(" closed deals"))
 
 	const profileLink = document.createElement("a")
 	profileLink.setAttribute("href", `/salespeople/${salesperson.id}`)
