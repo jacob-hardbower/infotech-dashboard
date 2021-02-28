@@ -56,69 +56,77 @@
     </header>
 
     <main class="constrained">
+      <div class="primary-sections">
 
-      <div class="left-sidebar">
+        <div class="left-sidebar">
 
-        <section class="leaderboard-section primary-section">
-          <h2>Leaderboard</h2>
-          <p class="context">Most deals closed by:</p>
-          <div class="leaderboard-controls radio-group">
-            <div class="radio-button">
-              <input checked class="screenreader-only" type="radio" id="past-day" name="period" value="day">
-              <label for="past-day">Day</label>
+          <section class="leaderboard-section primary-section">
+            <h2>Leaderboard</h2>
+            <div class="control-group">
+              <p class="context">Most deals closed by:</p>
+              <div class="leaderboard-controls radio-group">
+                <div class="radio-button">
+                  <input checked class="screenreader-only" type="radio" id="past-day" name="period" value="day">
+                  <label for="past-day">Day</label>
+                </div>
+                <div class="radio-button">
+                  <input class="screenreader-only" type="radio" id="past-week" name="period" value="week">
+                  <label for="past-week">Week</label>
+                </div>
+                <div class="radio-button">
+                  <input class="screenreader-only" type="radio" id="past-month" name="period" value="month">
+                  <label for="past-month">Month</label>
+                </div>
+              </div>
             </div>
-            <div class="radio-button">
-              <input class="screenreader-only" type="radio" id="past-week" name="period" value="week">
-              <label for="past-week">Week</label>
+            <ol class="leaderboard-list profile-list" id="leaderboard"></ol>
+          </section>
+
+          <section class="feed-section primary-section">
+            <h2>Sales Feed</h2>
+            <p class="context">Remember: Always be closing</p>
+            <ul class="feed profile-list" id="feed"></ul>
+          </section>
+
+        </div>
+
+        <section class="sales-team-section primary-section">
+          <h2>Sales Team</h2>
+          <div class="list-controls flexy-row">
+            <div class="control-group flexy-column">
+              <p class="context">Sort salespeople by:</p>
+              <div class="radio-group">
+                <div class="radio-button">
+                  <input checked class="screenreader-only" type="radio" id="sort-by-name" name="sort" value="byName">
+                  <label for="sort-by-name">Name</label>
+                </div>
+                <div class="radio-button">
+                  <input class="screenreader-only" type="radio" id="sort-by-deals" name="sort" value="byDeals">
+                  <label for="sort-by-deals">Deals</label>
+                </div>
+              </div>
             </div>
-            <div class="radio-button">
-              <input class="screenreader-only" type="radio" id="past-month" name="period" value="month">
-              <label for="past-month">Month</label>
+            <div class="control-group flexy-column">
+              <p class="context">Order salespeople by:</p>
+              <div class="radio-group">
+                <div class="radio-button">
+                  <input checked class="screenreader-only" type="radio" id="asc-order" name="order" value="asc">
+                  <label for="asc-order">Asc</label>
+                </div>
+                <div class="radio-button">
+                  <input class="screenreader-only" type="radio" id="desc-order" name="order" value="desc">
+                  <label for="desc-order">Desc</label>
+                </div>
+              </div>
             </div>
           </div>
-          <ol class="leaderboard-list profile-list" id="leaderboard"></ol>
-        </section>
-
-        <section class="feed-section primary-section">
-          <h2>Sales Feed</h2>
-          <p class="context">Remember: Always be closing</p>
-          <ul class="feed profile-list" id="feed"></ul>
+          <ol class="salesperson-list profile-list" id="primary-salesperson-list"></ol>
+          <footer>
+            © Glengarry Glen Ross 1992
+          </footer>
         </section>
 
       </div>
-
-      <section class="sales-team-section primary-section">
-        <h2>Sales Team</h2>
-        <div class="list-controls">
-          <p class="context">Sort salespeople by:</p>
-          <div class="radio-group">
-            <div class="radio-button">
-              <input checked class="screenreader-only" type="radio" id="sort-by-name" name="sort" value="byName">
-              <label for="sort-by-name">Name</label>
-            </div>
-            <div class="radio-button">
-              <input class="screenreader-only" type="radio" id="sort-by-deals" name="sort" value="byDeals">
-              <label for="sort-by-deals">Deals</label>
-            </div>
-          </div>
-          <p class="context">Order salespeople by:</p>
-          <div class="radio-group">
-            <div class="radio-button">
-              <input checked class="screenreader-only" type="radio" id="asc-order" name="order" value="asc">
-              <label for="asc-order">Asc</label>
-            </div>
-            <div class="radio-button">
-              <input class="screenreader-only" type="radio" id="desc-order" name="order" value="desc">
-              <label for="desc-order">Desc</label>
-            </div>
-          </div>
-        </div>
-        <ol class="salesperson-list profile-list" id="primary-salesperson-list"></ol>
-        <footer>
-          © Glengarry Glen Ross 1992
-        </footer>
-      </section>
-
     </main>
 
 		<script src="./data/salespeople.js"></script>
