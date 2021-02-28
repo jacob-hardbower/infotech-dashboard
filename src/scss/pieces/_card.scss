@@ -1,9 +1,17 @@
-.leaderboard-list li {
+.leaderboard-list li,
+.feed li,
+.salesperson-list li {
 	display: flex;
+	margin-bottom: 20px;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	position: relative;
-	margin-bottom: 20px;
+
+	.salesperson-name {
+		line-height: 1rem;
+		font-size: .8rem;
+	}
+}
 .leaderboard-list li {
 
 	.closed-deals {
