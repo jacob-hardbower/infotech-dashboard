@@ -216,6 +216,9 @@ const createFeed = salespeople => {
 		image.setAttribute("alt", `Headshot photo of ${salesperson.name}`)
 		image.setAttribute("src", salesperson.photo)
 
+		const textContainer = document.createElement("div")
+		textContainer.classList.add("text-group")
+
 		const name = document.createElement("h3")
 		name.appendChild(document.createTextNode(salesperson.name))
 		name.classList.add("salesperson-name")
@@ -224,9 +227,11 @@ const createFeed = salespeople => {
 		message.appendChild(document.createTextNode(`${salesperson.message}`))
 		message.classList.add("sales-message")
 
+		textContainer.appendChild(name)
+		textContainer.appendChild(message)
+
 		row.appendChild(image)
-		row.appendChild(name)
-		row.appendChild(message)
+		row.appendChild(textContainer)
 
 		listFragment.appendChild(row)
 	})
