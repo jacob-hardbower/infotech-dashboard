@@ -20,7 +20,7 @@
 		border-radius: $radius-tight;
 		display: inline-block;
 		padding: 10px 15px;
-		border: 1px solid $gray-lightest;
+		border: $border-slim-width solid $gray-lightest;
 		font-size: .7rem;
 		line-height: 1em;
 		&:first-child {
