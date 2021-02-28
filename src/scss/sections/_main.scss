@@ -17,6 +17,14 @@ main {
 	margin-top: 20px;
 }
 
+.salesperson-list {
+	display: grid;
+	align-items: center;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	row-gap: 20px;
+	grid-gap: 25px;
+}
+
 main footer {
 	padding-top: 20px;
 	font-size: .7rem;
