@@ -6,3 +6,40 @@
 	margin-left: auto;
 	margin-right: auto;
 }
+
+/**
+	* Flexy is a set of utility classes that I've come up with (on the shoulders
+	* of giants), used for creating flexible, collapsing content with margins.
+	*
+	* flexy-row and flexy-column are required. Other classes are optional.
+	* Use the flex-basis of a flexy-column to functionally set a min-width.
+	*
+	*/
+
+.flexy-row {
+	/* Columns must be within a row */
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	margin-left: -20px; // negative column padding
+}
+
+.flexy-column {
+	/* Content should be within a column */
+	flex-grow: 1;
+	margin-left: 20px; // column padding
+	margin-bottom: 20px; // row padding
+}
+
+.-parent {
+	/* Must be applied to flexy-column(s) w/ child flexy-rows */
+	margin-bottom: 0;
+}
+
+.-fill-space {
+	/* Applicable on flexy-column(s)
+	/* Takes up all available space
+	/* Forces siblings down to their flex-basis */
+	flex-grow: 9999999;
+}
