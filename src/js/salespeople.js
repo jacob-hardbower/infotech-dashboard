@@ -171,7 +171,7 @@ const createSalespersonRow = (salesperson, topPerformer = false) => {
 	profileLink.setAttribute("title", `View profile of ${salesperson.name}`)
 
 	const viewSpan = document.createElement("span")
-	viewSpan.appendChild(document.createTextNode("View"))
+	viewSpan.appendChild(document.createTextNode("View "))
 	profileLink.appendChild(viewSpan)
 	profileLink.appendChild(document.createTextNode("Profile"))
 
