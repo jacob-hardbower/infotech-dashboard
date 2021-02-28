@@ -12,7 +12,12 @@
 	font-family: sans-serif;
 }
 
+.leaderboard-controls {
+	max-width: 300px;
+}
+
 .radio-group {
+	margin-bottom: 20px;
 	border-radius: $radius-tight;
 	border: $border-width solid $primary-color;
 	box-shadow: $box-shadow;
@@ -23,15 +28,36 @@
 	.radio-button {
 		width: 33.333333%;
 		display: inline-block;
+		&:not(:last-child) {
+			border-right: $border-slim-width solid $primary-color;
+		}
+
 		label {
 			width: 100%;
 			text-align: center;
 			display: block;
 			line-height: 1em;
 			padding: 10px 0;
+			cursor: pointer;
+			transition: background .15s ease;
+			&:after,
+			&:before {
+				opacity: 0;
+				content: "·";
+				-webkit-text-stroke: 1px $primary-color;
+				transition: opacity .15s ease;
+			}
 		}
 		input:checked + label {
 			background: $secondary-bg;
+			&:after,
+			&:before {
+				opacity: 1;
+				transition: opacity .15s .15s ease;
+			}
+		}
+		input:not(:checked) + label:hover {
+			background: $tertiary-bg;
 		}
 	}
 }
