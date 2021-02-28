@@ -4,6 +4,7 @@
 	flex-wrap: nowrap;
 	position: relative;
 	margin-bottom: 20px;
+.leaderboard-list li {
 
 	.closed-deals {
 		align-self: center;
@@ -15,27 +16,31 @@
 		order: 2;
 		border-radius: 100%;
 		width: 50px;
+		height: 50px;
+		background-color: $primary-color;
 		border: $border-width solid $primary-color;
 	}
 
 	.salesperson-name {
-		line-height: 1em;
 		order: 3;
-		font-size: .9em;
 		max-width: 60%;
+		padding-top: 6px;
 		padding-left: 10px;
-		padding-top: 5px;
 	}
 
 	.links-section {
+		font-size: .6rem;
 		position: absolute;
 		left: 95px;
-		top: 30px;
-		font-size: 8px;
+		top: 34px;
+		a {
+			margin-right: 10px;
+		}
 	}
 
 	.top-performer-tag,
-	.closed-deals span {
+	.closed-deals span,
+	.links-section a span {
 		display: none;
 	}
 }
