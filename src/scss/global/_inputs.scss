@@ -11,3 +11,27 @@
 .checkbox {
 	font-family: sans-serif;
 }
+
+.radio-group {
+	border-radius: $radius-tight;
+	border: $border-width solid $primary-color;
+	box-shadow: $box-shadow;
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	flex-wrap: nowrap;
+	.radio-button {
+		width: 33.333333%;
+		display: inline-block;
+		label {
+			width: 100%;
+			text-align: center;
+			display: block;
+			line-height: 1em;
+			padding: 10px 0;
+		}
+		input:checked + label {
+			background: $secondary-bg;
+		}
+	}
+}

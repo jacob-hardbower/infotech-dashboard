@@ -59,13 +59,19 @@
         <section class="leaderboard-section primary-section">
           <h2>Leaderboard</h2>
           <p class="context">Most deals closed by:</p>
-          <div class="leaderboard-controls">
-            <input checked type="radio" id="past-day" name="period" value="day">
-            <label for="past-day">Day</label>
-            <input type="radio" id="past-week" name="period" value="week">
-            <label for="past-week">Week</label>
-            <input type="radio" id="past-month" name="period" value="month">
-            <label for="past-month">Month</label>
+          <div class="leaderboard-controls radio-group">
+            <div class="radio-button">
+              <input checked class="screenreader-only" type="radio" id="past-day" name="period" value="day">
+              <label for="past-day">Day</label>
+            </div>
+            <div class="radio-button">
+              <input class="screenreader-only" type="radio" id="past-week" name="period" value="week">
+              <label for="past-week">Week</label>
+            </div>
+            <div class="radio-button">
+              <input class="screenreader-only" type="radio" id="past-month" name="period" value="month">
+              <label for="past-month">Month</label>
+            </div>
           </div>
           <ol class="leaderboard-list" id="leaderboard"></ol>
         </section>
@@ -82,14 +88,22 @@
       <section class="sales-team-section primary-section">
         <h2>Sales Team</h2>
         <div class="list-controls">
-          <input checked type="radio" id="sort-by-name" name="sort" value="byName">
-          <label for="sort-by-name">Name</label><br>
-          <input type="radio" id="sort-by-deals" name="sort" value="byDeals">
-          <label for="sort-by-deals">Deals</label><br>
-          <input checked type="radio" id="asc-order" name="order" value="asc">
-          <label for="asc-order">Ascending</label><br>
-          <input type="radio" id="desc-order" name="order" value="desc">
-          <label for="desc-order">Descending</label><br>
+          <div class="radio-group">
+            <div class="radio-button">
+              <input checked class="screenreader-only" type="radio" id="sort-by-name" name="sort" value="byName">
+              <label for="sort-by-name">Name</label>
+            </div>
+            <div class="radio-button">
+              <input class="screenreader-only" type="radio" id="sort-by-deals" name="sort" value="byDeals">
+              <label for="sort-by-deals">Deals</label>
+            </div>
+          </div>
+          <div class="radio-group">
+            <input checked class="screenreader-only" type="radio" id="asc-order" name="order" value="asc">
+            <label for="asc-order">Ascending</label>
+            <input class="screenreader-only" type="radio" id="desc-order" name="order" value="desc">
+            <label for="desc-order">Descending</label>
+          </div>
         </div>
         <ol class="salesperson-list" id="primary-salesperson-list"></ol>
       </section>
