@@ -4,13 +4,17 @@ main {
 
 .primary-section {
 	padding-top: 30px;
-	padding-bottom: 30px;
+	margin-bottom: 30px;
 	h2 {
 		margin-bottom: 10px;
 	}
 	.context {
-		margin-bottom: 5px;
+		margin-bottom: 8px;
 	}
+}
+
+.profile-list {
+	margin-top: 20px;
 }
 
 .leaderboard-section {
