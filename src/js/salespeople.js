@@ -169,7 +169,11 @@ const createSalespersonRow = (salesperson, topPerformer = false) => {
 	const profileLink = document.createElement("a")
 	profileLink.setAttribute("href", `/salespeople/${salesperson.id}`)
 	profileLink.setAttribute("title", `View profile of ${salesperson.name}`)
-	profileLink.appendChild(document.createTextNode("View profile"))
+
+	const viewSpan = document.createElement("span")
+	viewSpan.appendChild(document.createTextNode("View"))
+	profileLink.appendChild(viewSpan)
+	profileLink.appendChild(document.createTextNode("Profile"))
 
 	const messageLink = document.createElement("a")
 	messageLink.setAttribute("href", `/message/user/${salesperson.id}`)
