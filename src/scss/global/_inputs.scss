@@ -16,10 +16,14 @@
 	max-width: 300px;
 }
 
+.radio-group + .context {
+	margin-top: -10px;
+}
+
 .radio-group {
 	margin-bottom: 30px;
 	border-radius: $radius-tight;
-	border: $border-width solid $primary-color;
+	border: $border;
 	box-shadow: $box-shadow;
 	overflow: hidden;
 	position: relative;
@@ -29,15 +33,16 @@
 		flex-grow: 1;
 		display: inline-block;
 		&:not(:last-child) {
-			border-right: $border-slim-width solid $primary-color;
+			border-right: $border-slim;
 		}
 
 		label {
+			font-size: .9rem;
 			width: 100%;
 			text-align: center;
 			display: block;
 			line-height: 1em;
-			padding: 10px 0;
+			padding: 8px 0;
 			cursor: pointer;
 			transition: background .15s ease;
 			&:after,

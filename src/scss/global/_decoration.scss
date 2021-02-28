@@ -4,4 +4,7 @@ $radius-tight: 6px;
 $border-width: 2px;
 $border-slim-width: 1px;
 
-$box-shadow: -7px 7px 0 $primary-color;
+$border: $border-width solid $decoration-color;
+$border-slim: $border-slim-width solid $decoration-color;
+
+$box-shadow: -7px 7px 0 $decoration-color;
