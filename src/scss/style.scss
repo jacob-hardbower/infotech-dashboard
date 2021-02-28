@@ -1,11 +1,17 @@
-@import 'reset';
-
 @import 'fonts/overpass';
 @import 'fonts/poppins';
 
 @import 'global/reset';
+@import 'global/variables';
 @import 'global/typography';
+@import 'global/button';
+@import 'global/inputs';
 @import 'global/decoration';
 @import 'global/layout';
+
 @import 'sections/header';
+@import 'sections/main';
+@import 'sections/lists';
+
+@import 'pieces/card';
 @import 'pieces/theme-toggle';
