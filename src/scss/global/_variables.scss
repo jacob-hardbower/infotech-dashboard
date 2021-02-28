@@ -13,6 +13,9 @@ $tertiary-bg: var(--tertiary-bg-color);
 $primary-color: var(--primary-element-color);
 $decoration-color: var(--decoration-color);
 
+$split-breakpoint: 900px;
+$breakpoint-two: 1045px;
+
 body {
 	color: $primary-color;
 	background: $main-bg;
