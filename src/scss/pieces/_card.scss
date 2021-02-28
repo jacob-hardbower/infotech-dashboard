@@ -12,6 +12,83 @@
 		font-size: .8rem;
 	}
 }
+
+.salesperson-list li {
+	border-radius: $radius;
+	box-shadow: $box-shadow;
+	border: $border;
+	overflow: hidden;
+	flex-wrap: wrap;
+
+	img {
+		width: 40%;
+		border-right: $border-slim;
+	}
+	.salesperson-name {
+		flex-grow: 1;
+		padding-left: 15px;
+		padding-right: 10px;
+		align-self: center;
+		line-height: 1.2em;
+		font-size: .9rem;
+		height: 100%;
+		width: 60%;
+	}
+	.closed-deals {
+		width: 60%;
+		background: $tertiary-bg;
+		border-right: $border-slim;
+		border-top: $border-slim;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		padding-left: 15px;
+		font-size: 1.5rem;
+		span {
+			font-size: .6rem;
+			margin-left: 5px;
+		}
+	}
+	.links-section {
+		border-top: $border-slim;
+		width: 40%;
+		a {
+			display: block;
+			line-height: 1em;
+			padding: 10px 0;
+			text-align: center;
+			font-size: .7rem;
+			text-decoration: none;
+			background: $secondary-bg;
+			&:first-child {
+				border-bottom: $border-slim;
+			}
+			&:hover {
+				background: $main-bg;
+			}
+			span {
+				visibility: hidden;
+				position: absolute;
+				pointer-events: none;
+			}
+		}
+	}
+
+	.top-performer-tag {
+		position: absolute;
+		font-size: .6rem;
+		top: 6px;
+		right: 7px;
+		&:after {
+			content: "✦";
+			font-size: .7rem;
+			margin-left: 5px;
+			color: $accent;
+		}
+	}
+}
+
+
 .leaderboard-list li {
 
 	.closed-deals {
