@@ -76,14 +76,13 @@
               <label for="past-month">Month</label>
             </div>
           </div>
-          <ol class="leaderboard-list" id="leaderboard"></ol>
+          <ol class="leaderboard-list profile-list" id="leaderboard"></ol>
         </section>
 
         <section class="feed-section primary-section">
-          <h2>Feed</h2>
-          <p>Remember: Always be closing</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-          <ul class="feed" id="feed"></ul>
+          <h2>Sales Feed</h2>
+          <p class="context">Remember: Always be closing</p>
+          <ul class="feed profile-list" id="feed"></ul>
         </section>
 
       </div>
@@ -91,6 +90,7 @@
       <section class="sales-team-section primary-section">
         <h2>Sales Team</h2>
         <div class="list-controls">
+          <p class="context">Sort salespeople by:</p>
           <div class="radio-group">
             <div class="radio-button">
               <input checked class="screenreader-only" type="radio" id="sort-by-name" name="sort" value="byName">
@@ -101,6 +101,7 @@
               <label for="sort-by-deals">Deals</label>
             </div>
           </div>
+          <p class="context">Order salespeople by:</p>
           <div class="radio-group">
             <div class="radio-button">
               <input checked class="screenreader-only" type="radio" id="asc-order" name="order" value="asc">
@@ -112,7 +113,7 @@
             </div>
           </div>
         </div>
-        <ol class="salesperson-list" id="primary-salesperson-list"></ol>
+        <ol class="salesperson-list profile-list" id="primary-salesperson-list"></ol>
       </section>
 
     </main>
