@@ -1,5 +1,8 @@
 "use strict"
 
+const prefersLight = initializeTheme()
+registerThemeToggle(prefersLight)
+
 // Get data and populate the page
 const salespeople = getSalesPeople()
 const feed = getFeed()
@@ -11,5 +14,3 @@ populateStats(salespeople)
 // Attach radio buttons to sorting/filtering
 registerListingRadios(salespeople)
 registerPeriodRadios(salespeople)
-
-registerThemeToggle()

@@ -19,3 +19,10 @@ body.-dark {
 		display: none;
 	}
 }
+
+#preference-detector {
+	color: white;
+	@media (prefers-color-scheme: dark) {
+		color: black;
+	}
+}
