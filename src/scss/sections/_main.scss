@@ -51,6 +51,16 @@ main footer {
 }
 
 @media screen and (min-width: $split-breakpoint) {
+	.primary-sections h2 {
+		&:before {
+			border-radius: $radius-tight;
+			z-index: -1;
+			content: "";
+			background: $main-bg;
+			position: absolute;
+			top: -3px; left: -7px; right: -9px; bottom: -3px;
+		}
+	}
 	.left-sidebar {
 		position: fixed;
 		width: 245px;
@@ -70,13 +80,6 @@ main footer {
 			position: relative;
 			display: inline-block;
 			z-index: 1;
-			&:before {
-				z-index: -1;
-				content: "";
-				background: $main-bg;
-				position: absolute;
-				top: 0; left: -7px; right: -9px; bottom: 0;
-			}
 		}
 	}
 	.sales-team-section {
@@ -90,13 +93,6 @@ main footer {
 			position: relative;
 			display: inline-block;
 			z-index: 1;
-			&:before {
-				z-index: -1;
-				content: "";
-				background: $main-bg;
-				position: absolute;
-				top: 0; left: -7px; right: -9px; bottom: 0;
-			}
 		}
 		&:before {
 			content: "";
