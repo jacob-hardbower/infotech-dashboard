@@ -1,0 +1,37 @@
+.primary-header {
+	background: $black;
+	color: $gray-lightest;
+	padding-top: 30px;
+	padding-bottom: 30px;
+
+	h1, .tagline {
+		margin-bottom: 20px;
+	}
+
+	.tagline {
+		font-style: italic;
+		font-size: .8em;
+		opacity: .8;
+		letter-spacing: .02em;
+		font-weight: 500;
+	}
+
+	.stat {
+		border-radius: $radius-tight;
+		display: inline-block;
+		padding: 10px 15px;
+		border: 1px solid $gray-lightest;
+		font-size: .7rem;
+		line-height: 1em;
+		&:first-child {
+			margin-right: 20px;
+			margin-bottom: 10px;
+		}
+	}
+
+	.toggle {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+	}
+}

@@ -11,3 +11,5 @@ populateStats(salespeople)
 // Attach radio buttons to sorting/filtering
 registerListingRadios(salespeople)
 registerPeriodRadios(salespeople)
+
+registerThemeToggle()

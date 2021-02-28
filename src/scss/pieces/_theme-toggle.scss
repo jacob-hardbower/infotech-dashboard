@@ -1,0 +1,21 @@
+.toggle {
+	font-size: 30px;
+	.sun {
+		transform: translateX(-2px);
+	}
+	.moon {
+		display: none;
+	}
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+body.-dark {
+	.moon {
+		display: block;
+	}
+	.sun {
+		display: none;
+	}
+}

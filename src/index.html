@@ -7,29 +7,48 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A dashboard for the head of sales">
     <style>
-      body {
-        --main-bg-color: white;
-        --secondary-bg-color: #e2e2e2;
-        --tertiary-bg-color: #f7f7f7;
-        --primary-element-color: #232323;
+      :root {
+        --white: white;
+        --black: #232323;
+        --gray-lightest: #f7f7f7;
+        --gray-light: #e2e2e2;
+        --gray-dark: #494949;
+        --gray-darkest: #333333
       }
-      body.dark {
-        --main-bg-color: #232323;
-        --secondary-bg-color: #494949;
-        --tertiary-bg-color: #333333;
-        --primary-element-color: #e2e2e2;
+      body {
+        --main-bg-color: var(--white);
+        --secondary-bg-color: var(--gray-light);
+        --tertiary-bg-color: var(--gray-lightest);
+        --primary-element-color: var(--black);
+      }
+      body.-dark {
+        --main-bg-color: var(--black);
+        --secondary-bg-color: var(--gray-dark);
+        --tertiary-bg-color: var(--gray-darkest);
+        --primary-element-color: var(--gray-light);
       }
     </style>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
 
-    <header>
-      <h1>Glengarry Glen Ross Inc.</h1>
-      <p class="tagline"><em>"Always. Be. Closing"</em></p>
-      <div class="statistics">
-        <p class="stat">Closed Deals: <span id="deals-stat">---</span></p>
-        <p class="stat">Current Value: <span id="value-stat">---</span></p>
+    <header class="primary-header">
+      <div class="constrained">
+        <h1>Glengarry Glen Ross Inc.</h1>
+        <p class="tagline"><em>"Always. Be. Closing"</em></p>
+        <div class="statistics">
+          <p class="stat">Closed Deals: <span id="deals-stat">---</span></p>
+          <p class="stat">Current Value: <span id="value-stat">---</span></p>
+        </div>
+      </div>
+      <div class="checkbox">
+        <label for="theme-checkbox">
+          <div class="toggle" id="theme-toggle" aria-label="Toggle dark theme">
+            <div class="icon moon">❍</div>
+            <div class="icon sun">❂</div>
+          </div>
+        </label>
+        <input type="checkbox" class="screenreader-only" id="theme-checkbox"/>
       </div>
     </header>
 
@@ -81,6 +100,7 @@
 		<script src="./js/salespeople.js"></script>
     <script src="./js/radios.js"></script>
     <script src="./js/statistics.js"></script>
+    <script src="./js/theme.js"></script>
 		<script src="./js/main.js"></script>
   </body>
 </html>

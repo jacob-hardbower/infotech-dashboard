@@ -1,0 +1,16 @@
+$black: #232323;
+$gray-lightest: #f7f7f7;
+$gray-light: #e2e2e2;
+$gray-dark: #494949;
+$gray-darkest: #333333;
+
+$main-bg: var(--main-bg-color);
+$secondary-bg: var(--secondary-bg-color);
+$tertiary-bg: var(--tertiary-bg-color);
+$primary-color: var(--primary-element-color);
+
+body {
+	color: $primary-color;
+	background: $main-bg;
+	transition: color .2s .15s ease, background .2s ease;
+}
