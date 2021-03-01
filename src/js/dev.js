@@ -1,5 +1,8 @@
 "use strict"
 
+/**
+ * Disables <a> tags, because they do not work
+ */
 const disableLinks = () => {
 	const links = document.getElementsByTagName("a")
 	for(let i = 0; i < links.length; i++) {
@@ -9,10 +12,27 @@ const disableLinks = () => {
 	}
 }
 
+/**
+ * Regularly updates feed with mock data
+ *
+ * @param {array} salespeople Array containing salesperson objects
+ */
 const autopopulateFeed = (salespeople) => {
-
 	const feed = document.getElementById("feed")
 
+	setInterval(() => {
+		addToList(feed, createFeedItem(randomSalespersonObj(salespeople)))
+	}, randomNumberBetween(3000, 8000))
+
+}
+
+/**
+ * Creates a random feed item object
+ * @param {array} salespeople Array containing salesperson objects
+ * @return {object} object with random data
+ */
+const randomSalespersonObj = (salespeople) => {
+	const person = salespeople[randomNumberBetween(0, salespeople.length - 1)]
 	const messages = [
 		"Closed a deal",
 		"Made a sale",
@@ -23,25 +43,19 @@ const autopopulateFeed = (salespeople) => {
 		"Won an account",
 		"Met with a client"
 	]
-
-	const randomSalespersonObj = () => {
-		const person = salespeople[randomNumberBetween(0, salespeople.length - 1)]
-		return {
-			message: messages[randomNumberBetween(0, messages.length - 1)],
-			name: person.name,
-			photo: person.photo
-		}
+	return {
+		message: messages[randomNumberBetween(0, messages.length - 1)],
+		name: person.name,
+		photo: person.photo
 	}
-
-	// setTimeout(() => {
-	// 	addToList(feed, createFeedItem(randomSalespersonObj()))
-	// }, 2000)
-
-	setInterval(() => {
-		addToList(feed, createFeedItem(randomSalespersonObj()))
-	}, randomNumberBetween(3000, 8000))
 }
 
+/**
+ * Adds a given item to a given list
+ *
+ * @param {object} feed The list
+ * @param {object} item Item to be added to the list
+ */
 const addToList = (feed, item) => {
 	if(feed.childElementCount > 9) {
 		feed.lastElementChild.remove()
@@ -49,6 +63,12 @@ const addToList = (feed, item) => {
 	animateListAddition(feed, item)
 }
 
+/**
+ * Animates the addition of an item to a list
+ *
+ * @param {object} feed The list
+ * @param {object} item Item to be added to the list
+ */
 const animateListAddition = (feed, item) => {
 	item.style.opacity = 0
 	item.style.transform = "translateX(-20px)"
@@ -71,6 +91,13 @@ const animateListAddition = (feed, item) => {
 	}, 300)
 }
 
-const randomNumberBetween = (num1,num2) => {
+/**
+ * Returns an integer between the given numbers
+ *
+ * @param {int} num1 First number
+ * @param {int} num2 Second number
+ * @return {int} Random integer between provided numbers
+ */
+const randomNumberBetween = (num1, num2) => {
 	return Math.round(Math.random() * (num2 - num1)) + num1
 }
