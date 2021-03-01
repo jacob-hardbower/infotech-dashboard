@@ -24,6 +24,13 @@ main {
 	margin-top: 10px;
 }
 
+.feed {
+	position: relative;
+	max-height: 360px;
+	overflow: auto;
+	margin-top: 15px;
+}
+
 .salesperson-list {
 	display: grid;
 	align-items: center;
