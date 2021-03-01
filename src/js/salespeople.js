@@ -210,31 +210,42 @@ const createSalespersonRow = (salesperson, topPerformer = false) => {
 const createFeed = salespeople => {
 	const listFragment = document.createDocumentFragment()
 	salespeople.forEach(salesperson => {
-		const row = document.createElement("li")
-
-		const image = document.createElement("img")
-		image.setAttribute("alt", `Headshot photo of ${salesperson.name}`)
-		image.setAttribute("src", salesperson.photo)
-
-		const textContainer = document.createElement("div")
-		textContainer.classList.add("text-group")
-
-		const name = document.createElement("h3")
-		name.appendChild(document.createTextNode(salesperson.name))
-		name.classList.add("salesperson-name")
-
-		const message = document.createElement("p")
-		message.appendChild(document.createTextNode(`${salesperson.message}`))
-		message.classList.add("sales-message")
-
-		textContainer.appendChild(name)
-		textContainer.appendChild(message)
-
-		row.appendChild(image)
-		row.appendChild(textContainer)
-
+		const row = createFeedItem(salesperson)
 		listFragment.appendChild(row)
 	})
 
 	return listFragment
+}
+
+/**
+ * Creates a list item element containing salesperson data
+ *
+ * @param {array} salesperson Object containing details of a salesperson
+ * @return {object} list item for feed
+ */
+const createFeedItem = salesperson => {
+	const row = document.createElement("li")
+
+	const image = document.createElement("img")
+	image.setAttribute("alt", `Headshot photo of ${salesperson.name}`)
+	image.setAttribute("src", salesperson.photo)
+
+	const textContainer = document.createElement("div")
+	textContainer.classList.add("text-group")
+
+	const name = document.createElement("h3")
+	name.appendChild(document.createTextNode(salesperson.name))
+	name.classList.add("salesperson-name")
+
+	const message = document.createElement("p")
+	message.appendChild(document.createTextNode(`${salesperson.message}`))
+	message.classList.add("sales-message")
+
+	textContainer.appendChild(name)
+	textContainer.appendChild(message)
+
+	row.appendChild(image)
+	row.appendChild(textContainer)
+
+	return row
 }
