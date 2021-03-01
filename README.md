@@ -41,14 +41,14 @@ Once the design was completed, I went back into JS mode, and added the dynamic S
 
 ## Explanation of Design Decisions
 ### Changes to received markup
-There were a few structural changes that I made to the HTML file I received. Most notably, I converted the table into an ordered list. Given that the data for each salesperson was very limited, a table seemed a bit too verbose.
+There were a few structural changes that I made to the HTML file I received. Most notably, I converted the table into an ordered list.
 
-Having each of the 3 sections as lists helped keep things semantic when sorting, and allowed for better use of space via the grid. If more salesperson data was available, a table might become the better option.
+Having each of the 3 sections as lists helped keep things semantic when sorted, and allowed for shared HTML. If more salesperson data was available, a table might become useful, and another view could be added. I would still leave the grid in as an quick reference view.
 
 A few other minor modifications were made to the ordering and positioning of content, as well as some text changes.
 
-### Why so much Javascript?
-I'm guessing that the expectations for this project were primarily related to visual design, via HTML and CSS. Given the time I had, I thought it might be beneficial to display a more broad set of skills.
+### Javascript!
+I'm guessing that the expectations for this project were primarily related to visual design via HTML and CSS. Given the time I had, I thought it might be beneficial to display a more broad set of skills. Enter Javascript.
 
 The dashboard provided the opportunity to exercise many different patterns, which I took as an invitation to practice and brush up on.
 
@@ -60,7 +60,7 @@ Since I was avoiding any libraries or frameworks, I opted to use a faux module s
 This decision favors legibility and usability (for the reviewer) over real-world best practices that could not be applied here.
 
 ## Improvements TBD
-1. I believe there is a more ideal way to implement the preferred color scheme of the browser. This was my first time developing a site with a theme toggle, and I know there's room for Improvement.
+1. I believe there is a more ideal way to implement the preferred color scheme of the browser. This was my first time developing a site with a theme toggle, and I know there's room for improvement.
 2. My wife says that the Ascending/Descending labels become confusing when switching from Name to Deals. To her, Deals + Ascending should list most deals first. I always get confused by list ordering (Asc vs Desc), and can imagine a better system that eschews that verbiage.
 
 ## Thanks
