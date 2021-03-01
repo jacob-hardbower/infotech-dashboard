@@ -37,7 +37,7 @@
 	}
 	.closed-deals {
 		width: 60%;
-		background: $tertiary-bg;
+		background: $secondary-bg;
 		border-right: $border-slim;
 		border-top: $border-slim;
 		display: flex;
@@ -60,7 +60,7 @@
 			text-align: center;
 			font-size: .7rem;
 			text-decoration: none;
-			background: $secondary-bg;
+			background: $tertiary-bg;
 			&:first-child {
 				border-bottom: $border-slim;
 			}
