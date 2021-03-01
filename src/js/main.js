@@ -16,3 +16,4 @@ registerListingRadios(salespeople)
 registerPeriodRadios(salespeople)
 
 disableLinks()
+autopopulateFeed(salespeople)
