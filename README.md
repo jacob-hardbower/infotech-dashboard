@@ -61,7 +61,7 @@ This decision favors legibility and usability (for the reviewer) over real-world
 
 ## Improvements TBD
 1. I believe there is a more ideal way to implement the preferred color scheme of the browser. This was my first time developing a site with a theme toggle, and I know there's room for improvement.
-2. My wife says that the Ascending/Descending labels become confusing when switching from Name to Deals. To her, Deals + Ascending should list most deals first. I always get confused by list ordering (Asc vs Desc), and can imagine a better system that eschews that verbiage.
+2. When viewing the sales team, my wife says most intuitive and useful to see the Name/Ascending and Deals/Descending combinations. Unfortunately, to swap between the two, you have to change both settings. I always get confused by list ordering (Asc vs Desc) anyways, and would ideally implement a system that eschews that verbiage.
 
 ## Thanks
 Thank you for viewing my project!
