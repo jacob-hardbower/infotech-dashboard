@@ -13,7 +13,7 @@ This project can run without any dependencies, locally on your computer.
 3. Navigate to the /src directory
 4. Open index.html in your browser
 
-If you wish to view a hosted version of the site on the web, [the continuously deployed site can be found here](https://glengarry.netlify.app/src/index.html).
+If you wish to view a hosted version of the site on the web, [the continuously deployed site can be found here](https://glengarry.netlify.app).
 
 ## Features
 - Dark/Light theme with automatic detection
